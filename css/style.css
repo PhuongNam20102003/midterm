@@ -1,0 +1,848 @@
+/* =====================================================================
+   PORTFOLIO WEBSITE — STYLESHEET DÙNG CHUNG
+   Chủ đề: "Passport" — Portfolio cá nhân lấy cảm hứng từ hộ chiếu
+   và nhật ký du lịch. File này được cả 3 trang (index, travel-diary,
+   bucket-list) cùng sử dụng để đảm bảo tính NHẤT QUÁN về thiết kế.
+   ===================================================================== */
+
+/* ---------------------------------------------------------------------
+   1. CSS VARIABLES (Design Tokens)
+   Khai báo biến màu/font/khoảng cách ở một chỗ duy nhất.
+   Muốn đổi cả bộ nhận diện thương hiệu -> chỉ cần sửa ở đây.
+--------------------------------------------------------------------- */
+:root {
+  /* Bảng màu: lấy cảm hứng từ bản đồ hàng hải cổ & con dấu hộ chiếu */
+  --navy: #16283d;          /* nền tối chính: header, hero, footer */
+  --navy-deep: #0f1d2c;     /* navy đậm hơn, dùng cho gradient/độ sâu */
+  --parchment: #ede4cc;     /* nền sáng chính: như giấy bản đồ cũ */
+  --parchment-light: #f7f1e1; /* nền card sáng hơn 1 chút */
+  --brass: #b8863b;         /* vàng đồng la bàn: accent chính */
+  --brass-light: #d1a75c;
+  --teal: #3f6b6b;          /* xanh cảng biển: accent phụ, mát */
+  --stamp-red: #a8402f;     /* đỏ dấu mộc hộ chiếu — dùng tiết chế */
+  --ink: #2b2620;           /* màu chữ chính trên nền sáng */
+  --ivory: #f6f1e4;         /* màu chữ trên nền tối */
+
+  /* Font chữ — 3 vai trò rõ ràng */
+  --font-display: "Fraunces", serif;   /* tiêu đề lớn, có cá tính */
+  --font-body: "Inter", sans-serif;    /* đoạn văn, dễ đọc */
+  --font-mono: "Space Mono", monospace; /* toạ độ, ngày tháng, số hiệu */
+
+  /* Khoảng cách (spacing scale) — dùng nhất quán thay vì số tuỳ tiện */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-5: 3rem;
+  --space-6: 5rem;
+  --space-7: 7rem;
+
+  --radius-sm: 6px;
+  --radius-md: 16px;
+  --shadow-soft: 0 10px 30px rgba(15, 29, 44, 0.14);
+  --shadow-hover: 0 20px 45px rgba(15, 29, 44, 0.22);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1180px;
+}
+
+/* ---------------------------------------------------------------------
+   2. RESET — xoá margin/padding mặc định của trình duyệt
+--------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* cuộn mượt khi bấm link nội bộ (#contact...) */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--parchment);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+  background: none;
+}
+
+/* ---------------------------------------------------------------------
+   3. TYPOGRAPHY — dùng clamp() để chữ tự co giãn theo màn hình
+   (không cần viết riêng @media chỉ để đổi font-size)
+--------------------------------------------------------------------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  line-height: 1.15;
+  font-weight: 600;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 5vw + 1rem, 4.5rem);
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3vw + 1rem, 2.8rem);
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.5vw + 0.8rem, 1.6rem);
+}
+
+p {
+  color: var(--ink);
+  opacity: 0.85;
+}
+
+.eyebrow {
+  /* nhãn nhỏ phía trên tiêu đề, kiểu tem/nhãn hộ chiếu */
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brass);
+  margin-bottom: var(--space-2);
+}
+
+/* ---------------------------------------------------------------------
+   4. LAYOUT UTILITIES
+--------------------------------------------------------------------- */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: var(--space-7) 0;
+}
+
+.section--tight {
+  padding: var(--space-5) 0;
+}
+
+.section-head {
+  max-width: 640px;
+  margin-bottom: var(--space-5);
+}
+
+.section-head p {
+  margin-top: var(--space-2);
+}
+
+/* dùng cho nền tối xen kẽ nền sáng, tạo nhịp điệu cho trang */
+.bg-navy {
+  background: var(--navy);
+  color: var(--ivory);
+}
+.bg-navy h1, .bg-navy h2, .bg-navy h3 { color: var(--ivory); }
+.bg-navy p { color: var(--ivory); opacity: 0.75; }
+
+/* ---------------------------------------------------------------------
+   5. HEADER & NAVIGATION (dùng chung, có Mobile Menu)
+--------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(22, 40, 61, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(184, 134, 59, 0.25);
+  transition: box-shadow var(--transition);
+}
+
+.site-header.is-scrolled {
+  box-shadow: var(--shadow-soft);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 1.5rem;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--ivory);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.nav__links a {
+  color: var(--ivory);
+  font-size: 0.95rem;
+  position: relative;
+  padding: 0.3rem 0;
+  opacity: 0.85;
+  transition: opacity var(--transition);
+}
+
+/* hiệu ứng hover: gạch chân "vẽ" dần từ trái sang phải */
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--brass);
+  transition: width var(--transition);
+}
+
+.nav__links a:hover,
+.nav__links a.active {
+  opacity: 1;
+}
+
+.nav__links a:hover::after,
+.nav__links a.active::after {
+  width: 100%;
+}
+
+/* Nút hamburger — ẩn trên desktop, hiện trên mobile */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  width: 28px;
+  z-index: 110;
+}
+
+.nav__toggle span {
+  display: block;
+  height: 2px;
+  background: var(--ivory);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* Khi menu mobile đang mở: biến hamburger thành dấu X */
+.nav__toggle.is-active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.nav__toggle.is-active span:nth-child(2) {
+  opacity: 0;
+}
+.nav__toggle.is-active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------------------
+   6. HERO — mỗi trang có 1 kiểu hero riêng nhưng cùng "giọng" thiết kế
+--------------------------------------------------------------------- */
+.hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--ivory);
+  padding: var(--space-6) 0 var(--space-7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* hoạ tiết đường kẻ mờ phía sau, gợi lưới toạ độ bản đồ */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(246, 241, 228, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(246, 241, 228, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-5);
+  align-items: center;
+}
+
+.hero-photo-frame {
+  aspect-ratio: 3 / 4;
+  border: 6px solid var(--parchment);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-hover);
+  transform: rotate(2deg);
+  transition: transform var(--transition);
+}
+
+.hero-photo-frame:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+.hero-photo-frame img {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.passport-id {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--brass-light);
+  margin-bottom: var(--space-2);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-2);
+}
+
+.hero .role {
+  font-family: var(--font-mono);
+  color: var(--teal);
+  background: rgba(63, 107, 107, 0.18);
+  display: inline-block;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  margin-bottom: var(--space-3);
+  border: 1px solid rgba(63, 107, 107, 0.4);
+}
+
+.hero p.lead {
+  max-width: 46ch;
+  font-size: 1.05rem;
+  margin-bottom: var(--space-4);
+  color: var(--ivory);
+  opacity: 0.8;
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Hero rút gọn cho Trang 2 / Trang 3 */
+.page-hero {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  color: var(--ivory);
+  padding: var(--space-6) 0 var(--space-5);
+  text-align: center;
+}
+
+.page-hero p {
+  max-width: 56ch;
+  margin: var(--space-2) auto 0;
+  color: var(--ivory);
+  opacity: 0.8;
+}
+
+/* ---------------------------------------------------------------------
+   7. BUTTONS
+--------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.btn--primary {
+  background: var(--brass);
+  color: var(--navy-deep);
+}
+
+.btn--primary:hover {
+  background: var(--brass-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn--outline {
+  border: 1.5px solid var(--ivory);
+  color: var(--ivory);
+}
+
+.btn--outline:hover {
+  background: var(--ivory);
+  color: var(--navy);
+}
+
+.btn--small {
+  padding: 0.55rem 1rem;
+  font-size: 0.82rem;
+  border: 1.5px solid var(--teal);
+  color: var(--teal);
+  border-radius: var(--radius-sm);
+  width: 100%;
+  justify-content: center;
+}
+
+.btn--small:hover {
+  background: var(--teal);
+  color: var(--ivory);
+}
+
+/* ---------------------------------------------------------------------
+   8. STAMP COMPONENT — YẾU TỐ NHẬN DIỆN XUYÊN SUỐT 3 TRANG
+   Mô phỏng con dấu nhập cảnh trên hộ chiếu. Dùng cho: dự án (Trang 1),
+   địa điểm đã đến (Trang 2 - viền liền), địa điểm muốn đến
+   (Trang 3 - viền đứt nét, nghĩa là "chưa được đóng dấu").
+--------------------------------------------------------------------- */
+.stamp {
+  --stamp-color: var(--stamp-red);
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  border: 3px solid var(--stamp-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--stamp-color);
+  font-family: var(--font-mono);
+  transform: rotate(-9deg);
+  position: relative;
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.stamp::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid var(--stamp-color);
+  border-radius: 50%;
+}
+
+.stamp strong {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.stamp span {
+  font-size: 0.62rem;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+/* Trạng thái "chưa đến" — dùng ở Trang 3 (Bucket List) */
+.stamp--pending {
+  --stamp-color: var(--teal);
+  border-style: dashed;
+  opacity: 0.75;
+}
+.stamp--pending::before {
+  border-style: dashed;
+}
+
+/* ---------------------------------------------------------------------
+   8b. ABOUT SECTION — layout 2 cột + "bảng dữ liệu hộ chiếu"
+--------------------------------------------------------------------- */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-5);
+  align-items: start;
+}
+
+.about-grid p + p {
+  margin-top: var(--space-2);
+}
+
+.passport-data {
+  padding: var(--space-4);
+}
+
+.passport-data h3 {
+  margin-bottom: var(--space-3);
+}
+
+.passport-data .data-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding: 0.7rem 0;
+  border-bottom: 1px dashed rgba(43, 38, 32, 0.2);
+  font-size: 0.92rem;
+}
+
+.passport-data .data-row:last-child {
+  border-bottom: none;
+}
+
+.passport-data dt {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--teal);
+}
+
+.passport-data dd {
+  font-weight: 600;
+  text-align: right;
+}
+
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   9. CARDS DÙNG CHUNG
+--------------------------------------------------------------------- */
+.card {
+  background: var(--parchment-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-soft);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* --- Skills (Trang 1) --- */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-tag {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  padding: 0.6rem 1.1rem;
+  border: 1.5px solid var(--brass);
+  border-radius: 999px;
+  color: var(--ink);
+  background: var(--parchment-light);
+  transition: var(--transition);
+}
+
+.skill-tag:hover {
+  background: var(--brass);
+  color: var(--ivory);
+  transform: translateY(-3px);
+}
+
+/* --- Projects (Trang 1) --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-4);
+}
+
+.project-card {
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.project-card .project-image {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  aspect-ratio: 16/10;
+}
+
+.project-card .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.06);
+}
+
+.project-card .tags {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.project-card .tags span {
+  font-size: 0.72rem;
+  font-family: var(--font-mono);
+  color: var(--teal);
+  background: rgba(63, 107, 107, 0.12);
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+}
+
+/* --- Diary / Bucket cards (Trang 2 & 3) --- */
+.entry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-4);
+}
+
+.entry-card {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry-card .entry-image {
+  aspect-ratio: 4/3;
+  overflow: hidden;
+  position: relative;
+}
+
+.entry-card .entry-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform 0.5s ease;
+}
+
+.entry-card:hover .entry-image img {
+  transform: scale(1.08);
+}
+
+/* thẻ toạ độ nổi trên ảnh */
+.entry-coords {
+  position: absolute;
+  bottom: var(--space-2);
+  left: var(--space-2);
+  background: rgba(15, 29, 44, 0.75);
+  color: var(--ivory);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.entry-body {
+  padding: var(--space-3);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.entry-body .entry-text {
+  flex: 1;
+}
+
+.entry-body .entry-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--teal);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.entry-body h3 {
+  margin-bottom: 0.4rem;
+}
+
+.entry-body p {
+  font-size: 0.92rem;
+}
+
+/* Ảnh của địa điểm CHƯA đến (Trang 3) — làm nhạt màu nhẹ để tạo cảm giác
+   "còn là mơ ước", khác với ảnh đầy màu ở Trang 2 (đã thực sự đến) */
+.entry-card--pending .entry-image img {
+  filter: saturate(0.55) brightness(0.95);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.entry-card--pending:hover .entry-image img {
+  filter: saturate(0.8) brightness(1);
+}
+
+.entry-action {
+  padding: 0 var(--space-3) var(--space-3);
+}
+
+/* khi bucket-list item được "đóng dấu" qua JS (tương tác) */
+.entry-card.is-checked .stamp--pending {
+  --stamp-color: var(--stamp-red);
+  border-style: solid;
+  opacity: 1;
+}
+.entry-card.is-checked .stamp--pending::before {
+  border-style: solid;
+}
+
+/* ---------------------------------------------------------------------
+   10. CONTACT / FOOTER
+--------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-3);
+}
+
+.contact-card {
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.contact-card .icon {
+  font-size: 1.6rem;
+  margin-bottom: var(--space-1);
+}
+
+.site-footer {
+  background: var(--navy-deep);
+  color: var(--ivory);
+  padding: var(--space-4) 0;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+.site-footer a {
+  color: var(--brass-light);
+}
+
+/* ---------------------------------------------------------------------
+   11. SCROLL-REVEAL ANIMATION (điều khiển bằng JS IntersectionObserver)
+--------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger nhẹ cho các item trong grid */
+.reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal:nth-child(4) { transition-delay: 0.24s; }
+.reveal:nth-child(5) { transition-delay: 0.32s; }
+.reveal:nth-child(6) { transition-delay: 0.4s; }
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(16px) rotate(-9deg) scale(0.9); }
+  to { opacity: 1; transform: translateY(0) rotate(-9deg) scale(1); }
+}
+
+.hero .stamp,
+.project-card .stamp,
+.entry-body .stamp {
+  animation: floatIn 0.6s ease both;
+}
+
+/* ---------------------------------------------------------------------
+   12. RESPONSIVE — Tablet & Mobile
+--------------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+  }
+  .hero-photo-frame {
+    max-width: 320px;
+    margin: 0 auto;
+    order: -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav__toggle {
+    display: flex;
+  }
+
+  .nav__links {
+    position: fixed;
+    inset: 0 0 0 30%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    background: var(--navy-deep);
+    transform: translateX(100%);
+    transition: transform var(--transition);
+  }
+
+  .nav__links.is-open {
+    transform: translateX(0);
+  }
+
+  .section {
+    padding: var(--space-6) 0;
+  }
+
+  .entry-body {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1.1rem;
+  }
+  .hero {
+    padding: var(--space-5) 0 var(--space-6);
+  }
+  .stamp {
+    width: 88px;
+    height: 88px;
+  }
+  .stamp strong { font-size: 0.62rem; }
+}
+
+/* ---------------------------------------------------------------------
+   13. ACCESSIBILITY
+--------------------------------------------------------------------- */
+:focus-visible {
+  outline: 3px solid var(--brass);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

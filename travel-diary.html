@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nhật ký du lịch — Nguyễn Văn A</title>
+  <meta name="description" content="Những chuyến đi đã qua của Nguyễn Văn A, ghi lại như những trang nhật ký du lịch." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / ĐIỀU HƯỚNG (giống hệt Trang 1 để đảm bảo tính nhất quán) ============ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__brand">✈ Nguyễn Văn A</a>
+
+      <button class="nav__toggle" aria-label="Mở menu điều hướng" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="travel-diary.html" class="active">Nhật ký du lịch</a></li>
+        <li><a href="bucket-list.html">Bucket List</a></li>
+        <li><a href="index.html#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Trang 2 · Chủ đề tự do</span>
+        <h1>Nhật ký du lịch</h1>
+        <p>
+          Mỗi chuyến đi là một con dấu được đóng vào cuốn hộ chiếu của mình.
+          Đây là những nơi mình đã thực sự đặt chân đến.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ DANH SÁCH CÁC CHUYẾN ĐI ĐÃ QUA ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="entry-grid">
+
+          <!-- Địa điểm 1 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/dalat/600/450" alt="Phong cảnh Đà Lạt" />
+              <span class="entry-coords">11.9404° N, 108.4583° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 03 / 2026</span>
+                <h3>Đà Lạt</h3>
+                <p>Thành phố sương mù với những đồi thông và quán cà phê nhỏ ẩn mình trong hẻm.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Địa điểm 2 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/hoian/600/450" alt="Phố cổ Hội An về đêm" />
+              <span class="entry-coords">15.8801° N, 108.3380° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 05 / 2026</span>
+                <h3>Hội An</h3>
+                <p>Đèn lồng thắp sáng cả con phố cổ, và sông Hoài lấp lánh về đêm.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Địa điểm 3 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/phuquoc/600/450" alt="Bãi biển Phú Quốc" />
+              <span class="entry-coords">10.2270° N, 103.9670° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 06 / 2026</span>
+                <h3>Phú Quốc</h3>
+                <p>Nước biển trong xanh và những buổi hoàng hôn không thể nào quên.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Địa điểm 4 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/sapa/600/450" alt="Ruộng bậc thang Sapa" />
+              <span class="entry-coords">22.3364° N, 103.8438° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 10 / 2025</span>
+                <h3>Sa Pa</h3>
+                <p>Ruộng bậc thang xanh mướt và không khí se lạnh đặc trưng vùng núi phía Bắc.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Địa điểm 5 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/hagiang/600/450" alt="Cao nguyên đá Hà Giang" />
+              <span class="entry-coords">23.2734° N, 105.2312° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 11 / 2025</span>
+                <h3>Hà Giang</h3>
+                <p>Cung đường đèo Mã Pí Lèng ngoằn ngoèo và cao nguyên đá hùng vĩ.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Địa điểm 6 -->
+          <article class="entry-card card reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/ninhbinh/600/450" alt="Sông nước Tràng An Ninh Bình" />
+              <span class="entry-coords">20.2506° N, 105.9144° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Tháng 01 / 2026</span>
+                <h3>Ninh Bình</h3>
+                <p>Đi thuyền qua Tràng An, len lỏi giữa những hang động và núi đá vôi.</p>
+              </div>
+              <div class="stamp">
+                <strong>Đã đến</strong>
+                <span>Verified</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Nguyễn Văn A. Được tạo bằng HTML, CSS &amp; JavaScript thuần — không dùng framework.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

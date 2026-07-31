@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bucket List — Nguyễn Văn A</title>
+  <meta name="description" content="Những nơi Nguyễn Văn A mơ ước được đặt chân đến trong tương lai." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ============ HEADER / ĐIỀU HƯỚNG (giống hệt 2 trang kia) ============ -->
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="index.html" class="nav__brand">✈ Nguyễn Văn A</a>
+
+      <button class="nav__toggle" aria-label="Mở menu điều hướng" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__links">
+        <li><a href="index.html">Trang chủ</a></li>
+        <li><a href="travel-diary.html">Nhật ký du lịch</a></li>
+        <li><a href="bucket-list.html" class="active">Bucket List</a></li>
+        <li><a href="index.html#contact">Liên hệ</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ PAGE HERO ============ -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Trang 3 · Chủ đề tự do</span>
+        <h1>Bucket List</h1>
+        <p>
+          Những trang hộ chiếu còn để trống — nơi mình mong một ngày sẽ được
+          đóng dấu thật. Bấm nút bên dưới mỗi thẻ để "đánh dấu" nơi bạn cũng
+          muốn ghé qua!
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ DANH SÁCH ĐIỂM ĐẾN MƠ ƯỚC ============ -->
+    <section class="section">
+      <div class="container">
+        <div class="entry-grid">
+
+          <!-- Điểm đến 1 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/kyoto/600/450" alt="Đền cổ ở Kyoto, Nhật Bản" />
+              <span class="entry-coords">35.0116° N, 135.7681° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐⭐⭐</span>
+                <h3>Kyoto, Nhật Bản</h3>
+                <p>Ngắm hoa anh đào nở rộ dọc những ngôi đền cổ hàng trăm năm tuổi.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+          <!-- Điểm đến 2 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/iceland/600/450" alt="Cực quang ở Iceland" />
+              <span class="entry-coords">64.1466° N, 21.9426° W</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐⭐⭐</span>
+                <h3>Reykjavik, Iceland</h3>
+                <p>Săn cực quang và ngâm mình trong suối nước nóng giữa trời tuyết trắng.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+          <!-- Điểm đến 3 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/zermatt/600/450" alt="Đỉnh Matterhorn phủ tuyết ở Thụy Sĩ" />
+              <span class="entry-coords">46.0207° N, 7.7491° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐⭐</span>
+                <h3>Zermatt, Thụy Sĩ</h3>
+                <p>Đi tàu lửa xuyên núi để ngắm đỉnh Matterhorn huyền thoại phủ tuyết trắng.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+          <!-- Điểm đến 4 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/queenstown/600/450" alt="Thiên nhiên hoang sơ ở Queenstown, New Zealand" />
+              <span class="entry-coords">45.0312° S, 168.6626° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐⭐</span>
+                <h3>Queenstown, New Zealand</h3>
+                <p>Thử cảm giác mạnh với bungee jumping giữa khung cảnh thiên nhiên hùng vĩ.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+          <!-- Điểm đến 5 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/lofoten/600/450" alt="Làng chài ở quần đảo Lofoten, Na Uy" />
+              <span class="entry-coords">68.2333° N, 14.5667° E</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐</span>
+                <h3>Lofoten, Na Uy</h3>
+                <p>Chụp ảnh những ngôi làng chài nhỏ xinh dưới ánh mặt trời nửa đêm.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+          <!-- Điểm đến 6 -->
+          <article class="entry-card card entry-card--pending reveal">
+            <div class="entry-image">
+              <img src="https://picsum.photos/seed/patagonia/600/450" alt="Sông băng ở Patagonia, Argentina" />
+              <span class="entry-coords">50.9423° S, 73.4068° W</span>
+            </div>
+            <div class="entry-body">
+              <div class="entry-text">
+                <span class="entry-date">Mong muốn: ⭐⭐⭐⭐</span>
+                <h3>Patagonia, Argentina</h3>
+                <p>Trekking giữa những sông băng khổng lồ ở tận cùng phía nam thế giới.</p>
+              </div>
+              <div class="stamp stamp--pending">
+                <strong>Mong đợi</strong>
+                <span>Pending</span>
+              </div>
+            </div>
+            <div class="entry-action">
+              <button class="btn btn--small" data-check-btn type="button">Đánh dấu muốn đến</button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Nguyễn Văn A. Được tạo bằng HTML, CSS &amp; JavaScript thuần — không dùng framework.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
