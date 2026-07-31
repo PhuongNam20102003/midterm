@@ -163,6 +163,19 @@ p {
 .bg-navy h1, .bg-navy h2, .bg-navy h3 { color: var(--ivory); }
 .bg-navy p { color: var(--ivory); opacity: 0.75; }
 
+/* NGOẠI LỆ QUAN TRỌNG: các Card (nền luôn sáng - parchment) nằm bên
+   trong 1 section nền navy (VD khối Contact) phải giữ chữ màu TỐI,
+   nếu không sẽ bị 2 rule ngay phía trên "đè" luôn, khiến chữ sáng
+   nằm trên nền sáng -> gần như vô hình. Selector 2 lớp bên dưới có
+   độ ưu tiên (specificity) cao hơn nên sẽ luôn thắng. */
+.bg-navy .card h3,
+.bg-navy .card p {
+  color: var(--ink);
+}
+.bg-navy .card p {
+  opacity: 0.85;
+}
+
 /* ---------------------------------------------------------------------
    5. HEADER & NAVIGATION (dùng chung, có Mobile Menu)
 --------------------------------------------------------------------- */
