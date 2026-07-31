@@ -13,29 +13,6 @@ Website portfolio cá nhân lấy cảm hứng từ hình ảnh **hộ chiếu v
 Toàn bộ 3 trang dùng chung một hệ thống màu sắc, typography và thành phần "con dấu" (stamp) để đảm bảo tính nhất quán trong thiết kế.
 
 ## 🔗 Tài nguyên liên quan
-- **Bản thiết kế Figma (quyền Viewer):** [Dán link Figma của bạn ở đây]
-- **Live Demo:** [Dán link website đã deploy ở đây — GitHub Pages / Vercel / Netlify]
+- **Bản thiết kế Figma (quyền Viewer):**(https://www.figma.com/design/euLeKNERu02luDmsjXvtj9/midterm?node-id=0-1&t=J5470pYRUNyubmcZ-1)
+- **Live Demo:**https://phuongnam20102003.github.io/midterm/index.html
 
-## 🛠️ Công nghệ sử dụng
-- HTML5
-- CSS3 (Flexbox, Grid, CSS Variables, Animation)
-- JavaScript thuần (Vanilla JS — Intersection Observer, DOM events)
-
-## 📂 Cấu trúc thư mục
-```
-├── index.html          # Trang 1 - Personal Portfolio
-├── travel-diary.html   # Trang 2 - Nhật ký du lịch
-├── bucket-list.html    # Trang 3 - Bucket List
-├── css/
-│   └── style.css       # Toàn bộ style dùng chung cho 3 trang
-├── js/
-│   └── script.js       # Xử lý mobile menu, scroll reveal, tương tác
-└── README.md
-```
-
-## ✨ Tính năng
-- Responsive trên Desktop, Tablet và Mobile
-- Mobile menu (hamburger) đóng/mở mượt mà
-- Hiệu ứng hover trên nav, card, nút bấm
-- Hiệu ứng "reveal" khi cuộn trang (Intersection Observer)
-- Tương tác đánh dấu địa điểm ở trang Bucket List
