@@ -1,8 +1,8 @@
 # Passport — Portfolio cá nhân
 
 ## 👤 Thông tin sinh viên
-- **Họ và tên:** [Điền tên bạn ở đây]
-- **MSSV:** [Điền MSSV ở đây]
+- **Họ và tên:** Huỳnh Phương Nam
+- **MSSV:** 2100012340
 
 ## 📌 Mô tả website
 Website portfolio cá nhân lấy cảm hứng từ hình ảnh **hộ chiếu và nhật ký du lịch**.
